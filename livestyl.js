@@ -15,11 +15,11 @@ if (mainfile == null) {
 
 var base = path.dirname(mainfile);
 try {
-	if (!fs.statSync(base).isFile()) {
+	if (!fs.statSync(mainfile).isFile()) {
 		throw new Error('the main file is not a file!');
 	}
 } catch (e) {
-	console.log('error: ' + e.getMessage());
+	console.log('error: ' + e.message);
 	process.exit(0);
 }
 
@@ -68,7 +68,8 @@ server.get('/get', function(req, res, next) {
 			.set('firebug', !!req.param('mtime'))
 			.render(function(err, css) {
 				if (err) {
-					console.log(err);
+					console.log('\n\n\n\n\n\x07')
+					console.log(err.message);
 					return next(err);
 				}
 				res.send(css, { 'Content-Type': 'text/css; charset=utf-8' });
@@ -78,6 +79,7 @@ server.get('/get', function(req, res, next) {
 
 
 server.use(express.static(__dirname + '/public'));
-
-server.listen(25531);
+var port = 25531;
+server.listen(port, '127.0.0.1');
+console.log('navigate to http://localhost:' + port + '/ <-- mac user: cmd+double click!');
 
