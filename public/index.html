@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Live CSS Editor</title>
+<p>Preview Bookmarklet: </p>
+<script>
+var base = location.protocol + '//' + location.host;
+var bookmarklet = function(base) {
+	var sc = document.createElement('script');
+	sc.type = 'text/javascript';
+	sc.src = base + '/dtlivecss.js';
+	window.DtLiveCSSBase = base;
+	document.body.appendChild(sc);
+};
+window.onload = function() {
+	var a = document.createElement('a');
+	a.href = 'javascript:(' + bookmarklet.toSource() + ')(' + JSON.stringify(base) + ')';
+	a.appendChild(document.createTextNode('Live CSS'));
+	document.getElementsByTagName('p')[0].appendChild(a);
+};
+</script>
+
+<p>when you are done, get the <a href="/get">raw css</a></p>
