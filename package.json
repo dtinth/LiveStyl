@@ -1,0 +1,13 @@
+{
+	"name": "livestyl",
+	"version": "0.1.0",
+	"author": "dtinth",
+	"dependencies": {
+		"stylus": "0.19.3",
+		"express": "2.4.7"
+	},
+	"main": "index",
+	"bin": {
+		"livestyl": "./bin/livestyl"
+	}
+}

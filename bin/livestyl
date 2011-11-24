@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var mainfile = process.argv[2];
+if (mainfile == null) {
+	console.log('usage: node livestyl.js <path/to/main-file>.styl [port] [host]');
+	process.exit(0);
+}
+
+var server = require('../').createServer(mainfile);
+var port = process.argv[3] || process.env.LIVESTYL_PORT;
+if (port == null || isNaN(port)) port = 25531;
+
+server.listen(port);
+console.log('navigate to http://localhost:' + port + '/ <-- mac user: cmd+double click!');
+
