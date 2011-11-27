@@ -12,7 +12,7 @@ var bookmarklet = function(base) {
 };
 window.onload = function() {
 	var a = document.createElement('a');
-	a.href = 'javascript:(' + bookmarklet.toSource() + ')(' + JSON.stringify(base) + ')';
+	a.href = 'javascript:(' + (typeof bookmarklet.toSource == 'function' ? bookmarklet.toSource() : bookmarklet.toString()) + ')(' + JSON.stringify(base) + ')';
 	a.appendChild(document.createTextNode('Live CSS'));
 	document.getElementsByTagName('p')[0].appendChild(a);
 };
