@@ -1,6 +1,6 @@
 {
 	"name": "livestyl",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"author": "dtinth",
 	"dependencies": {
 		"stylus": "0.19.3",
